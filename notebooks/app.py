@@ -1,13 +1,15 @@
 import streamlit as st
 import pandas as pd
 import joblib
+import os
+
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+MODEL_FILE = os.path.join(BASE_DIR, "model.pkl")
 
 st.set_page_config(page_title="Heart Disease Prediction", page_icon=":bar_chart:", layout="wide")
 
 st.title("Heart Disease Prediction App")
 st.write("This app predicts the likelihood of heart disease based on user input.")
-
-MODEL_FILE =  "model.pkl"
 
 try :
     final_model = joblib.load(MODEL_FILE)
